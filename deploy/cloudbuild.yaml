@@ -1,0 +1,15 @@
+steps:
+- id: 'config_check'
+  name: 'ubuntu'
+  args: ['bash', 'deploy/bin/config_update.bash']
+  env: 
+  - 'branch_name=$BRANCH_NAME'
+  - 'repo_name=$REPO_NAME'
+- id: 'render_secrets'
+  name: 'ubuntu'
+  args: ['bash', 'deploy/bin/render_secrets.bash']
+  env: 
+  - 'branch_name=$BRANCH_NAME'
+  - 'repo_name=$REPO_NAME'
+  wait_for: 
+  - 'config_check'
