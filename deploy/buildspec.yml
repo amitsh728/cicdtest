@@ -1,1 +1,25 @@
-
+version: 0.2
+env:
+    variables:
+        ENV: "Testing"
+phases:
+    install:
+        commands:
+            - echo "This is the command part of install phase in $ENV environment."
+        finally:
+            - echo "This is the finally part of install phase in $ENV environment."
+    pre_build:        
+        commands:
+            - echo "This is the command part of pre_build phase in $ENV environment."
+        finally:
+            - echo "This is the finally part of pre_build phase in $ENV environment."
+    build:
+        commands:
+            - echo "This is the command part of build phase in $ENV environment."
+        finally:
+            - echo "This is the finally part of build phase in $ENV environment."
+    post_build:
+        commands:
+            - echo "This is the command part of post_build phase in $ENV environment."
+        finally:
+            - echo "This is the finally part of post_build phase in $ENV environment."
